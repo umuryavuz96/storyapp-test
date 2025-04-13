@@ -1,17 +1,18 @@
-//
-//  storyapp_testApp.swift
-//  storyapp-test
-//
-//  Created by Umur Yavuz on 13/4/25.
-//
-
 import SwiftUI
+import ComposableArchitecture
+import ApiModels
+import Dependencies
 
 @main
 struct storyapp_testApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView(
+                store: Store(
+                    initialState: HomeReducer.State(),
+                    reducer: { HomeReducer() }
+                )
+            )
         }
     }
 }
