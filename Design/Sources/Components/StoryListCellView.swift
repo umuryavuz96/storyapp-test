@@ -85,7 +85,7 @@ public struct StoryListCellView: View {
                 Text(username)
                     .font(.caption)
                     .foregroundColor(.primary)
-                    .lineLimit(2)
+                    .lineLimit(1)
                     .multilineTextAlignment(.center)
                     .frame(width: 70)
             }
