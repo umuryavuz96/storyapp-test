@@ -71,13 +71,17 @@ To ensure the app performs well, I implemented several optimizations:
 
 ## Challenges & Solutions
 
-### Independent Liked/Viewed States
+### Data Fetching Strategy
 
-One interesting challenge was managing the independent viewed and liked states. I implemented a solution where:
+I first tried to fetch the data from a remote URL; however, due to some issues with the API reliability, I decided to hold the users JSON locally. This approach ensured a consistent experience while still demonstrating the ability to parse and display JSON data. The app's architecture would make it trivial to switch back to a remote data source in the future.
 
-- Stories can be either viewed, liked, both, or neither
-- The UI accurately reflects these states with appropriate borders and indicators
-- State changes are persisted between sessions
+### SwiftUI Animation Limitations
+
+I wanted to implement a hero transition with matchGeometryEffect where the story circle cell enlarges to full screen with a smooth animation. Due to time constraints, I implemented a simpler animation approach, but the groundwork is there with the namespace ID being passed around. With more time, I would enhance these animations to create a more polished experience.
+
+### Local Data Persistence
+
+Implementing an effective strategy for storing viewed and liked states locally required thoughtful design. I chose a simple JSON-based persistence approach that writes to the app's documents directory. This solution is lightweight and doesn't require complex database setup while still providing reliable state persistence between app launches.
 
 ### Efficient UI Updates
 
